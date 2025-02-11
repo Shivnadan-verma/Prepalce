@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Prediction Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #0056b3;
+            color: white;
+        }
+        #about-section, #mission-section, #developer-section {
+            background-color: #e9ecef;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Placement Prediction Dashboard</h1>
+
+        <!-- Upload CSV Section -->
+        <div id="upload-section" class="card p-4 mb-4">
+            <h2>Upload CSV File for Batch Prediction</h2>
+            <form action="/predict" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".csv" class="form-control mb-3" required>
+                <button type="submit" class="btn btn-primary w-100">Upload and Predict</button>
+            </form>
+        </div>
+
+        <!-- Individual Prediction Section -->
+        <div id="predict-section" class="card p-4 mb-4">
+            <h2>Individual Student Prediction</h2>
+            <form action="/predict" method="POST">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="sessional_marks" class="form-label">Sessional Marks</label>
+                        <input type="number" name="sessional_marks" id="sessional_marks" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="tg_attendance" class="form-label">T.G. Attendance</label>
+                        <input type="number" name="tg_attendance" id="tg_attendance" class="form-control" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="class_attendance" class="form-label">Class Attendance</label>
+                        <input type="number" name="class_attendance" id="class_attendance" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="Logical_Ability" class="form-label">Logical Ability</label>
+                        <input type="number" name="Logical_Ability" id="Logical_Ability" class="form-control" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="Quantitative_Ability" class="form-label">Quantitative Ability</label>
+                        <input type="number" name="Quantitative_Ability" id="Quantitative_Ability" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="English_Comprehension" class="form-label">English Comprehension</label>
+                        <input type="number" name="English_Comprehension" id="English_Comprehension" class="form-control" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="Domain_Knowledge" class="form-label">Domain Knowledge</label>
+                        <input type="number" name="Domain_Knowledge" id="Domain_Knowledge" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="Automata_Programming" class="form-label">Automata Programming</label>
+                        <input type="number" name="Automata_Programming" id="Automata_Programming" class="form-control" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success w-100">Predict</button>
+            </form>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results-section" class="card p-4 mb-4">
+            <h3>Results Summary</h3>
+            {% if prediction_text %}
+                <p>{{ prediction_text }}</p>
+                {% if download_link %}
+                    <a href="{{ download_link }}" class="btn btn-primary w-100" target="_blank">Download Predicted Results</a>
+                {% endif %}
+            {% endif %}
+
+            {% if graph_data %}
+                <canvas id="placementChart"></canvas>
+                <script>
+                    const ctx = document.getElementById('placementChart').getContext('2d');
+                    const data = JSON.parse('{{ graph_data | tojson }}');
+                    new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: ['Strong Chance', 'Minimal Chance'],
+                            datasets: [{
+                                data: data.values,
+                                backgroundColor: ['#28a745', '#dc3545']
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: { position: 'top' }
+                            }
+                        }
+                    });
+                </script>
+            {% endif %}
+        </div>
+
+
+
+        <!-- Developers Section -->
+        <div id="developer-section" class="card p-4 mb-4">
+            <h2>Our Developers</h2>
+            <p>This platform was developed by a passionate team of engineers and data scientists at SISTEC. The team aims to build practical, impactful tools for the student community, combining data-driven insights with easy-to-use interfaces.</p>
+            <ul>
+                <li>Developer 1: Frontend Engineer</li>
+                <li>Developer 2: Backend Engineer</li>
+                <li>Developer 3: Data Scientist</li>
+                <li>Developer 4: UI/UX Designer</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Placement Prediction Dashboard</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+</head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="navbar">
+            <h1>Placement Precision</h1>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
+                <a href="/logout">Logout</a>
+                <form action="/prediction" method="POST" style="display: inline;">
+                    <button type="submit" class="cta">Predict Now</button>
+                </form>            
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h2>Predict Your Placement with Precision</h2>
+        <p>Unlock a world of possibilities by accurately predicting your placement chances using our advanced algorithms. Get insights into your future with real-time data analysis.</p>
+        <form action="/prediction" method="POST">
+            <button type="submit" class="cta">Start Your Free Analysis</button>
+        </form>
+        </section>
+
+    <!-- Companies Section -->
+    <section id="features" class="companies">
+        <h3>Trusted by Leading Colleges</h3>
+        <p>Our platform is used by top-tier colleges to assess student potential and placement readiness.</p>
+        <div class="company-logos">
+            <img src="{{ url_for('static', filename='css/image.png') }}" alt="College 1">        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h3>How It Works</h3>
+        <p>We analyze key data points like your sessional marks, CGPA, attendance, and AMCAT score to give you an accurate prediction of your chances of getting placed at top companies.</p>
+        <div class="feature-cards">
+            <div class="card">
+                <h4>Sessional Marks</h4>
+                <p>We factor in your sessional performance to calculate placement predictions.</p>
+            </div>
+            <div class="card">
+                <h4>CGPA</h4>
+                <p>Your CGPA is a key parameter that we use to predict your placement success.</p>
+            </div>
+            <div class="card">
+                <h4>Attendance</h4>
+                <p>Your attendance percentage is taken into account to gauge eligibility for placement opportunities.</p>
+            </div>
+            <div class="card">
+                <h4>AMCAT Score</h4>
+                <p>We integrate AMCAT scores to give a comprehensive analysis of your placement chances.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="blog" class="testimonials">
+        <h3>Success Stories</h3>
+        <div class="testimonial-cards">
+            <div class="testimonial-card">
+                <p>"Using Placement Predictor helped me understand where I needed to focus and improve. I got placed at a top tech company!"</p>
+                <h4>Priya Sharma, Tech Intern</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"The insights provided by this tool were incredibly useful. It gave me clarity on how to improve my chances for a better placement!"</p>
+                <h4>Ravi Kumar, Software Engineer</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples Section -->
+    <section class="examples">
+        <h3>How It Works</h3>
+        <div class="example-cards">
+            <div class="example-card">
+                <h4>Step 1: Data Collection</h4>
+                <p>Provide us with your academic data, including CGPA, sessional marks, and more.</p>
+            </div>
+            <div class="example-card">
+                <h4>Step 2: Prediction Analysis</h4>
+                <p>Our advanced algorithms analyze your data and generate placement predictions tailored to you.</p>
+            </div>
+            <div class="example-card">
+                <h4>Step 3: Personalized Suggestions</h4>
+                <p>Receive specific recommendations to enhance your placement chances based on the prediction.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Have any questions? We're here to help! Reach out to us using the form below.</p>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Placement Prediction | Powered by SISTec</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Prediction Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/in.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <h1 class="navbar-brand">Placement Dashboard</h1>
+                        <a class="nav-link" href="/landing">Home</a>
+                        <a class="nav-link" href="#predict-section">Individual Prediction</a>
+                        <a class="nav-link" href="#results-section">Results</a>
+                        <a class="nav-link" href="#">Dashboard</a>
+
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: 50px;">
+        <!-- Error Message -->
+        {% if error_message %}
+            <div class="alert alert-danger">{{ error_message }}</div>
+        {% endif %}
+
+        <!-- Success Message -->
+        {% if success_message %}
+            <div class="alert alert-success">{{ success_message }}</div>
+        {% endif %}
+
+        <!-- Upload CSV Section -->
+        <div id="upload-section" class="card p-4 mb-4">
+            <h2>Upload CSV File for Batch Prediction</h2>
+            <form action="/prediction" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".csv" class="form-control mb-3" required>
+                <button type="submit" class="btn btn-primary w-100">Upload and Predict</button>
+            </form>
+        </div>
+
+        <!-- Individual Prediction Section -->
+        <div id="predict-section" class="card p-4 mb-4">
+            <h2>Individual Student Prediction</h2>
+            <form action="/prediction" method="POST">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="sessional_marks" class="form-label">Sessional Marks</label>
+                        <input type="number" name="sessional_marks" id="sessional_marks" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="project_marks" class="form-label">Project Marks</label>
+                        <input type="number" name="project_marks" id="project_marks" class="form-control" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="Class_attendance" class="form-label">Class Attendance</label>
+                        <input type="number" name="Class_attendance" id="Class_attendance" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="Logical_Ability" class="form-label">Logical Ability</label>
+                        <input type="number" name="Logical_Ability" id="Logical_Ability" class="form-control" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="Quantitative_Ability" class="form-label">Quantitative Ability</label>
+                        <input type="number" name="Quantitative_Ability" id="Quantitative_Ability" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="English_Comprehension" class="form-label">English Comprehension</label>
+                        <input type="number" name="English_Comprehension" id="English_Comprehension" class="form-control" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="Domain_Knowledge" class="form-label">Domain Knowledge</label>
+                        <input type="number" name="Domain_Knowledge" id="Domain_Knowledge" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="Automata_Programming" class="form-label">Automata Programming</label>
+                        <input type="number" name="Automata_Programming" id="Automata_Programming" class="form-control" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success w-100">Predict</button>
+            </form>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results-section" class="card p-4 mb-4">
+            <h3>Results Summary</h3>
+            {% if prediction_text %}
+                <p>{{ prediction_text }}</p>
+                {% if download_link %}
+                    <a href="{{ download_link }}" class="btn btn-primary w-100" target="_blank">Download Predicted Results</a>
+                {% endif %}
+            {% else %}
+                <p>No prediction results available.</p>
+            {% endif %}
+
+            {% if graph_data %}
+                <canvas id="placementChart"></canvas>
+                <script>
+                    const ctx = document.getElementById('placementChart').getContext('2d');
+                    const data = JSON.parse('{{ graph_data | tojson }}');
+                    new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: ['Strong Chance', 'Minimal Chance'],
+                            datasets: [{
+                                data: data.values,
+                                backgroundColor: ['#28a745', '#dc3545']
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: { position: 'top' }
+                            }
+                        }
+                    });
+                </script>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white text-center py-3">
+        <p>© 2024 Placement Prediction Dashboard</p>
+    </footer>
+</body>
+</html>

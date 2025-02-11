@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #0056b3;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #003d80;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Placement Prediction</h1>
+        <h2>Enter Student Data</h2>
+        <form action="/predict" method="POST">
+            <label for="sessional_marks">Sessional Marks:</label>
+            <input type="number" name="sessional_marks" id="sessional_marks" required>
+            
+            <label for="tg_attendance">TG Attendance:</label>
+            <input type="number" name="tg_attendance" id="tg_attendance" required>
+            
+            <label for="class_attendance">Class Attendance:</label>
+            <input type="number" name="class_attendance" id="class_attendance" required>
+            
+            <label for="amcat_marks">AMCAT Marks:</label>
+            <input type="number" name="amcat_marks" id="amcat_marks" required>
+            
+            <label for="project_count">Project Count:</label>
+            <input type="number" name="project_count" id="project_count" required>
+            
+            <label for="project_marks">Project Marks:</label>
+            <input type="number" name="project_marks" id="project_marks" required>
+            
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if prediction_text %}
+        <div class="result">
+            <p>{{ prediction_text }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

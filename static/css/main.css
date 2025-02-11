@@ -1,0 +1,197 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin-top: 80px;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    overflow-x: hidden;
+    
+    
+}
+
+header {
+    background-color: #003366;
+    color: #fff;
+    padding: 20px;
+    position: fixed; /* Fix the header at the top */
+    top: 0; /* Align to the top */
+    margin-left: 0;;
+    width: 100%; /* Ensure it spans the full width */
+    z-index: 1000; /* Ensure it stays on top of other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: adds shadow to distinguish the header */
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-right: 18px;
+}
+
+.navbar nav a:hover {
+    background-color: #00509e;
+}
+
+  
+/* Hero Section */
+.hero {
+    background-color: #003366;
+    color: #fff;
+    text-align: center;
+    padding: 50px 20px;
+    width: 100%;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: #ff6600;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #ff4500;
+}
+
+/* Features Section */
+.features {
+    background-color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 30px;
+    color: #003366;
+    margin-bottom: 20px;
+}
+
+.feature-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    width: 30%;
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item h3 {
+    color: #003366;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.feature-item:hover{
+    background-color: white;
+    
+}
+.feature-item h3 :hover{
+    color: #042e59;
+}
+
+.feature-item p :hover{
+    color: black;
+    font-weight: bold;
+}
+
+
+/* Stats Section */
+.stats {
+    background-color: #f4f4f4;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.stats h2 {
+    font-size: 30px;
+    color: #003366;
+    margin-bottom: 20px;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+}
+
+.stat-item {
+    text-align: center;
+    width: 30%;
+}
+
+.stat-item h3 {
+    font-size: 36px;
+    color: #003366;
+}
+
+.stat-item p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Call to Action Section */
+.cta {
+    background-color: #003366;
+    color: #fff;
+    text-align: center;
+    padding: 50px 20px;
+    width: 100%;
+}
+
+.cta h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.cta p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #003366;
+    color: #fff;
+    font-size: 14px;
+    width: 100%; /* Ensure it spans the full width */
+    z-index: 1000; /* Ensure it stays on top of other content */
+    
+}

@@ -1,0 +1,361 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f6f9; /* Lighter background for a cleaner look */
+    color: #333;
+    line-height: 1.6;
+    overflow-y: scroll;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+}
+
+/* Header */
+header {
+    background-color: #003366;
+    color: white;
+    padding: 15px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h1 {
+    font-size: 1.8rem;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: #00509e;
+}
+
+.cta {
+    background-color: #ff5722;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+}
+
+.cta:hover {
+    background-color: #e64a19;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(145deg, #003366, #004f87); /* Adding gradient */
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    margin-top: 70px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta {
+    background-color: #ffc107;
+    color: #343a40;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.cta:hover {
+    background-color: #e0a800;
+}
+
+/* Companies Section */
+.companies {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.companies h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.companies p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.company-logos img {
+    width: 150px;
+    margin: 10px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.company-logos img:hover {
+    opacity: 1;
+}
+
+/* Features Section */
+.features {
+    background-color: #f8f9fa;
+    padding: 60px 20px;
+    text-align: center;
+    border-top: 5px solid #00509e; /* Adding border for separation */
+}
+
+.features h3 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #003366;
+}
+
+.feature-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    margin: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #003366;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #00509e;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials h3 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.testimonial-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.testimonial-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    width: 350px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #555;
+}
+
+.testimonial-card p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.testimonial-card h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Examples Section */
+.examples {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.examples h3 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #003366;
+}
+
+.example-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.example-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    margin: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.example-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.example-card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #003366;
+}
+
+.example-card p {
+    font-size: 1rem;
+    color: #555;
+}
+/* Contact Section */
+.contact {
+       background-color: #f4f6f9; /* Lighter background for a cleaner look */
+    ; /* Light grey background */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #003366; /* Dark text for contrast */
+}
+
+.contact p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: #003366; /* Slightly lighter text */
+}
+
+/* Contact Form */
+#contact-form {
+    max-width: 600px; /* Maximum width for the form */
+    margin: 0 auto; /* Center the form */
+    background-color: #fff; /* White background for the form */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+#contact-form label {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #003366; /* Dark text */
+    text-align: left;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%; /* Full width */
+    padding: 12px;
+    margin-bottom: 20px; /* Space between fields */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #003366; /* Text color */
+    transition: border-color 0.3s; /* Smooth border color transition */
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border-color: #003366; /* Highlight border on focus */
+    outline: none;
+}
+
+#contact-form button {
+    background-color: #003366;
+     /* Button color */
+    color: white;
+    font-size: 1.1rem;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#contact-form button:hover {
+    background-color: #ff5722; /* Darker button color on hover */
+}
+
+#contact-form button:focus {
+    outline: none;
+}
+
+
+/* Footer */
+footer {
+    background-color: #003366;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    font-size: 1rem;
+    color: #ddd;
+}

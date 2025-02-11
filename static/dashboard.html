@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Summary Dashboard</title>
+    <!-- Linking CSS for styling -->
+    <link rel="stylesheet" href="dashboard.css">
+    <!-- Adding Chart.js for charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Placement Summary Report</h1>
+    </header>
+
+    <!-- Filters Section -->
+    <div class="filters">
+        <!-- Year Filter -->
+        <label for="year">Year:</label>
+        <select id="year">
+            <option value="all">All</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+        </select>
+
+        <!-- Department Filter -->
+        <label for="department">Department:</label>
+        <select id="department">
+            <option value="all">All</option>
+            <option value="CSE">CSE</option>
+            <option value="ECE">ECE</option>
+            <option value="MECH">MECH</option>
+            <option value="CIVIL">CIVIL</option>
+            <option value="IT">IT</option>
+        </select>
+
+        <!-- Add more filters dynamically as needed -->
+    </div>
+
+    <!-- Summary Section -->
+    <div class="summary">
+        <!-- Total Students Card -->
+        <div class="card">
+            <h2 id="totalStudents">3819</h2>
+            <p>Total Students</p>
+        </div>
+
+        <!-- Placed Students Card -->
+        <div class="card">
+            <h2 id="studentsPlaced">3441</h2>
+            <p>Students Placed</p>
+        </div>
+
+        <!-- Not Interested (Current Year) -->
+        <div class="card">
+            <h2 id="notInterestedCurrent">4.70%</h2>
+            <p>Not Interested (Current Year)</p>
+        </div>
+
+        <!-- Not Interested (Last Year) -->
+        <div class="card">
+            <h2 id="notInterestedLast">7.18%</h2>
+            <p>Not Interested (Last Year)</p>
+        </div>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="charts">
+        <!-- Placement Interest Chart -->
+        <canvas id="placementInterestChart"></canvas>
+
+        <!-- Placement Percentage Chart -->
+        <canvas id="placementPercentageChart"></canvas>
+    </div>
+
+    <!-- Detailed Charts Section -->
+    <div class="details">
+        <!-- Arrear Status Chart -->
+        <canvas id="arrearStatusChart"></canvas>
+
+        <!-- Organization Type Chart -->
+        <canvas id="organizationTypeChart"></canvas>
+
+        <!-- Student Performance Chart -->
+        <canvas id="studentPerformanceChart"></canvas>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Placement Dashboard | Powered by Your Institution</p>
+    </footer>
+
+    <!-- Linking JS Script -->
+    <script src="dash.js"></script>
+</body>
+</html>

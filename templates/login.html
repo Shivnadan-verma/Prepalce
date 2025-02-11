@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>Placement Predictor</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/ourmission">Our Mission</a>
+                <a href="/login">Login</a>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Left Section with Login Form -->
+        <div class="login-form">
+            <h2>Login</h2>
+            <form action="/login" method="POST">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter password" required>
+
+                <button type="submit">Login</button>
+            </form>
+            <p>Doesn't have an account yet? <a href="/register">Sign Up</a></p>
+        </div>
+        
+        <!-- Right Section with Illustration -->
+        <div class="illustration">
+            <img src="{{ url_for('static', filename='css/image2.png') }}" alt="Login Illustration">
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Placement Predictor. All rights reserved.</p>
+        <nav>
+            <a href="/privacy-policy">Privacy Policy</a> |
+            <a href="/terms-of-service">Terms of Service</a>
+        </nav>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+</html>

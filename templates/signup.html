@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reg.css') }}">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>Placement Predictor</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/ourmission">Our Mission</a>
+                <a href="/login">Login</a>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="register-form">
+            <h2>Create an Account</h2>
+            <form action="/register" method="POST">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter password" required>
+
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="/login">Login here</a></p>
+        </div>
+        <!-- Right Section with Illustration -->
+        <div class="illustration">
+            <img src="{{ url_for('static', filename='css/reg.png') }}" alt="Login Illustration">
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/ls.js') }}" defer></script>
+    <footer>
+        <p>&copy; 2024 Placement Predictor. All rights reserved.</p>
+        <nav>
+            <a href="/privacy-policy">Privacy Policy</a> |
+            <a href="/terms-of-service">Terms of Service</a>
+        </nav>
+    </footer>
+
+</body>
+
+</body>
+</html>
