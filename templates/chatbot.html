@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prepalce Chatbot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .chat-container {
+      width: 350px;
+      height: 500px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chat-header {
+      background-color: #007bff;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .chat-body {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+    }
+
+    .chat-message {
+      margin: 8px 0;
+    }
+
+    .user {
+      text-align: right;
+      color: #007bff;
+    }
+
+    .bot {
+      text-align: left;
+      color: #444;
+    }
+
+    .chat-footer {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+
+    #userInput {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      outline: none;
+    }
+
+    #sendBtn {
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #sendBtn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="chat-container">
+  <div class="chat-header">💬 Prepalce Chatbot</div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-footer">
+    <input type="text" id="userInput" placeholder="Type your message...">
+    <button id="sendBtn">Send</button>
+  </div>
+</div>
+
+<script>
+  const chatBody = document.getElementById("chatBody");
+  const userInput = document.getElementById("userInput");
+  const sendBtn = document.getElementById("sendBtn");
+
+  const botReplies = {
+    "hi": "Hello! 👋 How can I help you with placement or resume tips?",
+    "what is amcat": "AMCAT is an assessment test to evaluate your aptitude, technical skills, and employability.",
+    "resume tips": "Make sure your resume includes a summary, skills, projects, and education. Use keywords from job descriptions!",
+    "how to improve cgpa": "Attend lectures, take notes, revise regularly, and practice previous year papers.",
+    "bye": "Goodbye! All the best for your placements!",
+    "default": "Sorry, I didn't get that. Try asking about AMCAT, resume tips, or placement advice."
+  };
+
+  sendBtn.onclick = () => {
+    const msg = userInput.value.trim().toLowerCase();
+    if (msg === "") return;
+
+    appendMessage("user", userInput.value);
+    userInput.value = "";
+
+    const reply = botReplies[msg] || botReplies["default"];
+    setTimeout(() => {
+      appendMessage("bot", reply);
+    }, 500);
+  };
+
+  function appendMessage(sender, text) {
+    const msgDiv = document.createElement("div");
+    msgDiv.className = `chat-message ${sender}`;
+    msgDiv.textContent = text;
+    chatBody.appendChild(msgDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+</script>
+
+</body>
+</html>
