@@ -108,6 +108,10 @@ def landing():
         return redirect(url_for('login'))
     return render_template('landing.html')
 
+@app.route('/chatbot')
+def chatbot():
+    return render_template('chatbot.html')  # This serves chatbot.html
+
 @app.route('/prediction', methods=['POST'])
 def prediction():
     if 'file' in request.files:
